@@ -8,7 +8,7 @@ import numpy as np
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-data = pd.read_csv("data\\Salary_Data.csv")
+data = pd.read_csv("Salary_Data.csv")
 x = np.array(data["YearsExperience"]).reshape(-1, 1)
 
 st.title("Salary Predictor")
@@ -20,7 +20,7 @@ lr.fit(x, np.array(data["Salary"]))
 nav = st.sidebar.radio("Go to page", ["Home", "Predictor", "Contribute with data"])
 
 if nav == "Home":
-    st.image("data\\sal.jpg", width=800)
+    st.image("sal.jpg", width=800)
     if st.checkbox("Show data"):
         st.table(data)
 
@@ -62,7 +62,7 @@ if nav == "Contribute with data":
     if st.button("submit"):
         to_add = {"YearsExperience":[ex],"Salary":[sal]}
         to_add = pd.DataFrame(to_add)
-        to_add.to_csv("data\\Salary_Data.csv",mode='a',header = False,index= False)
+        to_add.to_csv("Salary_Data.csv",mode='a',header = False,index= False)
         st.success("Submitted")
 
 
