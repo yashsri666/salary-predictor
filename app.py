@@ -8,7 +8,7 @@ import numpy as np
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-data = pd.read_csv("C:\Users\naman\OneDrive\Desktop\Streamlit\data\Salary_Data.csv")
+data = pd.read_csv("data\\Salary_Data.csv")
 x = np.array(data["YearsExperience"]).reshape(-1, 1)
 
 st.title("Salary Predictor")
@@ -62,7 +62,7 @@ if nav == "Contribute with data":
     if st.button("submit"):
         to_add = {"YearsExperience":[ex],"Salary":[sal]}
         to_add = pd.DataFrame(to_add)
-        to_add.to_csv("C:\Users\naman\OneDrive\Desktop\Streamlit\data\Salary_Data.csv",mode='a',header = False,index= False)
+        to_add.to_csv("data\\Salary_Data.csv",mode='a',header = False,index= False)
         st.success("Submitted")
 
 
